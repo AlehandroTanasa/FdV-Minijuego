@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class Bullet : MonoBehaviour{
 
     public float speed = 6f;
-    public float maxLifeTime = 2f;
+    public float maxLifeTime = 3f;
     public Vector3 targetVector;
     public Vector3 shipVelocity = Vector3.zero;
     private Rigidbody _rigidbody;

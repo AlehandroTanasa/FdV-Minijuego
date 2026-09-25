@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 212910681572715648}
   - component: {fileID: 5614932627873486778}
   - component: {fileID: 2789716820118164963}
+  - component: {fileID: 6164634140802275361}
   m_Layer: 0
   m_Name: Meteor
   m_TagString: Asteroid
@@ -142,3 +143,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2.5
   m_Center: {x: -0.25, y: -2.1, z: 0}
+--- !u!114 &6164634140802275361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4432514875492639953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1f7d6d8395e5c4ba047ff58983889f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Asteroid
+  miniMeteorPrefab: {fileID: 4916366138918727110, guid: 43a635692ac79be4888ff28b76a85d1e, type: 3}
+  anguloDesviacion: 90
+  miniMeteorSpeed: 5
+  maxLifetimeMiniMeteors: 6
