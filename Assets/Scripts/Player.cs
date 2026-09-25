@@ -1,17 +1,23 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour{
     private Rigidbody _rigidbody;
     private Vector3 thrustDirection;
-    public float thrustForce = 100f;
-    public float rotationSpeed = 120f;
+    public float thrustForce = 200f;
+    public float rotationSpeed = 200f;
 
     public GameObject BulletSpawner, BulletPrefab;
+
+    public static int SCORE = 0;
+    public static float xBorderLimit, yBorderLimit;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
         _rigidbody = GetComponent<Rigidbody>();
+        xBorderLimit = Camera.main.orthographicSize * Camera.main.aspect;
+        yBorderLimit = Camera.main.orthographicSize;
     }
 
     // Update is called once per frame
@@ -44,10 +50,38 @@ public class Player : MonoBehaviour{
     void Update(){
         if(Keyboard.current != null){
             if(Keyboard.current.spaceKey.wasPressedThisFrame){
-                GameObject bullet = Instantiate(BulletPrefab, BulletSpawner.transform.position, Quaternion.identity);
+                GameObject bullet = Instantiate(BulletPrefab, BulletSpawner.transform.position, transform.rotation);
                 Bullet bulletScript = bullet.GetComponent<Bullet>();
-                bulletScript.targetVector = transform.right;
+                bulletScript.shipVelocity = _rigidbody.linearVelocity;
+
+                Collider bulletCollider = bullet.GetComponent<Collider>();
+                Collider playerCollider = GetComponent<Collider>();
+                Physics.IgnoreCollision(bulletCollider, playerCollider);
             }
+            
+            var newPosition = transform.position;
+
+            if(newPosition.x > xBorderLimit){
+                newPosition.x = -xBorderLimit + 0.5f;
+            } 
+            else if(newPosition.x < -xBorderLimit){
+                newPosition.x = xBorderLimit - 0.5f;
+            }
+            if(newPosition.y > yBorderLimit){
+                newPosition.y = -yBorderLimit + 0.5f;
+            } 
+            else if(newPosition.y < -yBorderLimit){
+                newPosition.y = yBorderLimit - 0.5f;
+            }
+            transform.position = newPosition;
+        }
+
+    }
+
+    private void OnCollisionEnter(Collision collision){
+        if(collision.gameObject.CompareTag("Asteroid")){
+            SCORE = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
