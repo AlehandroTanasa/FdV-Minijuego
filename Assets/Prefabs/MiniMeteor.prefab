@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 9007810890278175356}
   - component: {fileID: 2807812177545034696}
   - component: {fileID: 7068995865954881172}
+  - component: {fileID: -5871269573912103218}
   m_Layer: 0
   m_Name: MiniMeteor
-  m_TagString: Asteroid
+  m_TagString: MiniAsteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,3 +143,15 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2.5
   m_Center: {x: -0.25, y: -2.1, z: 0}
+--- !u!114 &-5871269573912103218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4916366138918727110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cfb0a16461aed24f9646c2209a01bd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MiniAsteroid

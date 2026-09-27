@@ -157,5 +157,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
   miniMeteorPrefab: {fileID: 4916366138918727110, guid: 43a635692ac79be4888ff28b76a85d1e, type: 3}
   anguloDesviacion: 90
-  miniMeteorSpeed: 5
+  miniMeteorSpeed: 2
   maxLifetimeMiniMeteors: 6
